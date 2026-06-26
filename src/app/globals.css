@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Height of the fixed StickyNav:
+     mobile  = TopBar(36) + Header logo row(56) = 92px
+     desktop = TopBar(36) + Header logo row(64) + Nav menu(44) = 144px  */
+  --nav-height: 92px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-height: 144px;
+  }
+}
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Hide the UX4G default floating button (purple Ctrl+F2 pill).
+ * This must be a STYLESHEET rule (not inline style) because the widget's
+ * "Bigger Text" feature calls el.setAttribute('style', 'zoom:...')
+ * which wipes out any display:none set via inline style.
+ * A stylesheet !important for display is unaffected by that inline zoom-only override.
+ */
+#uw-widget-custom-trigger,
+.uw-widget-custom-trigger {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Also hide the skip-link overlay the widget injects */
+#accessibility-overlay {
+  display: none !important;
+}
+
+/* Accessibility Widget Customization */
+#uw-main {
+  --color-dark-blue-1: #D74D02 !important;
+  max-width: 450px !important;
+  height: 500px !important;
+  max-height: 85vh !important;
+  bottom: 0 !important;
+  border-radius: 0 !important;
+  border-top-left-radius: 16px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  box-shadow: -10px 0 25px -5px rgba(0, 0, 0, 0.15) !important;
+  transition: right 0.3s ease-in-out !important;
+}
+
+/* Position when panel is open */
+#uw-main[style*="right: 0px"],
+#uw-main[style*="right: 0"] {
+  right: 0 !important;
+}
+
+/* Hide the Ctrl+F2 badge in the header */
+#uw-main .inner-short-key {
+  display: none !important;
+}
+
+/* Adjust heading padding/margin since badge is hidden */
+#uw-main .second-panel h2 {
+  font-weight: 500 !important;
+  font-size: 17px !important;
+}
+
+/* Scroll height adaptation */
+#uw-main .h-scroll {
+  height: calc(500px - 140px) !important;
+}
+
+/* Reset button styling with orange feel */
+#uw-main .btn-reset-all {
+  background-color: #FFE6D5 !important;
+  color: #D74D02 !important;
+}
+
+#uw-main .btn-reset-all:hover {
+  background-color: #FFD2B3 !important;
+}
+
+#uw-main .reset-icon {
+  background-color: #D74D02 !important;
+}
+
+/* Button hovers */
+#uw-main button:focus,
+#uw-main button:hover {
+  border-color: #D74D02 !important;
+  outline-color: #D74D02 !important;
+  background-color: rgba(215, 77, 2, 0.08) !important;
+}
+
+#uw-main .ux4g-accessibility-feature-active .uwaw-features__item__i {
+  box-shadow: 0 0 0 5px rgba(215, 77, 2, 0.15) !important;
+}
+
+/* Mobile responsive full drawer fallback */
+@media (max-width: 480px) {
+  #uw-main {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+  #uw-main[style*="right: 0px"],
+  #uw-main[style*="right: 0"] {
+    right: 0 !important;
+  }
+  #uw-main .second-panel {
+    border-radius: 0 !important;
+  }
+  #uw-main .h-scroll {
+    height: calc(100dvh - 160px) !important;
+  }
+}
+
+/* ── Hero Section Animations ── */
+@keyframes heroTextEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text-enter {
+  animation: heroTextEnter 0.7s ease-out forwards;
+}
+
+@keyframes heroProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+.hero-progress {
+  animation: heroProgress linear forwards;
+}
+
+@keyframes blink-bounce {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateY(-4px);
+  }
+}
+
+.animate-blink-bounce {
+  animation: blink-bounce 1.2s infinite ease-in-out;
+}
+
+/* Custom scrollbar utility for descriptions */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(243, 112, 33, 0.45);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(243, 112, 33, 0.75);
+}
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(243, 112, 33, 0.45) transparent;
+}
