@@ -78,7 +78,7 @@ export default function ProjectsContent() {
   return (
     <div className="w-full flex flex-col bg-white">
       {/* ── Hero Banner ── */}
-      <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
+        <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
         <Image
           src="/DSC_4568.jpg"
           alt="PMML Research Projects"
@@ -88,6 +88,7 @@ export default function ProjectsContent() {
           className="object-cover object-center"
         />
       </section>
+
 
       {/* ── Projects Catalog Section ── */}
       <section className="w-full py-12 lg:py-16 bg-white text-left">

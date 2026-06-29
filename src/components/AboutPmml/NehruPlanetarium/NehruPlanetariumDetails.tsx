@@ -44,6 +44,8 @@ const OFFERINGS: Offering[] = [
   }
 ];
 
+const EXTENDED_OFFERINGS = [...OFFERINGS, ...OFFERINGS.slice(0, 3)];
+
 const GALLERY_IMAGES = [
   { src: "/DSC_0038.JPG", alt: "Nehru Planetarium Exhibition Area" },
   { src: "/planetarium-home.jpg", alt: "Full Dome Sky Theatre" },
@@ -55,7 +57,8 @@ const GALLERY_IMAGES = [
 export default function NehruPlanetariumDetails() {
   const [startIndex, setStartIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
-  
+  const [isPausedOffering, setIsPausedOffering] = useState(false);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [galleryVisible, setGalleryVisible] = useState(3);
 
@@ -115,19 +118,55 @@ export default function NehruPlanetariumDetails() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const next = () => {
-    if (startIndex < OFFERINGS.length - visibleCount) {
+  // Infinite Carousel logic
+  useEffect(() => {
+    if (isPausedOffering) return;
+    const interval = setInterval(() => {
+      setTransitionEnabled(true);
       setStartIndex((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isPausedOffering]);
+
+  useEffect(() => {
+    if (startIndex === OFFERINGS.length) {
+      const timer = setTimeout(() => {
+        setTransitionEnabled(false);
+        setStartIndex(0);
+      }, 300); // Wait for transition duration (300ms)
+      return () => clearTimeout(timer);
     }
+  }, [startIndex]);
+
+  useEffect(() => {
+    if (!transitionEnabled) {
+      const timer = setTimeout(() => {
+        setTransitionEnabled(true);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [transitionEnabled]);
+
+  const next = () => {
+    setTransitionEnabled(true);
+    setStartIndex((prev) => prev + 1);
   };
 
   const prev = () => {
-    if (startIndex > 0) {
+    if (startIndex === 0) {
+      setTransitionEnabled(false);
+      setStartIndex(OFFERINGS.length);
+      setTimeout(() => {
+        setTransitionEnabled(true);
+        setStartIndex(OFFERINGS.length - 1);
+      }, 50);
+    } else {
+      setTransitionEnabled(true);
       setStartIndex((prev) => prev - 1);
     }
   };
 
-  const fraction = visibleCount === 3 ? 3.2 : visibleCount === 2 ? 2.2 : 1.2;
+  const fraction = visibleCount;
   const gapSize = visibleCount === 1 ? 16 : 24;
   const transformX = `calc(-${startIndex} * ( (100% - ${(fraction - 1) * gapSize}px) / ${fraction} + ${gapSize}px ))`;
 
@@ -207,69 +246,69 @@ export default function NehruPlanetariumDetails() {
           </div>
 
           {/* Carousel Wrapper */}
-          <div className="relative -mx-4 sm:-mx-10 lg:-mx-14 px-4 sm:px-10 lg:px-14">
-            {/* Left Overlapping Arrow */}
-            {startIndex > 0 && (
-              <button
-                onClick={prev}
-                className="absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center justify-center text-[#f37021] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                aria-label="Previous feature"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
-              </button>
-            )}
+          <div 
+            onMouseEnter={() => setIsPausedOffering(true)}
+            onMouseLeave={() => setIsPausedOffering(false)}
+            className="relative -mx-4 sm:-mx-10 lg:-mx-14 px-4 sm:px-10 lg:px-14"
+          >
+             {/* Left Overlapping Arrow */}
+             <button
+               onClick={prev}
+               className="absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center justify-center text-[#f37021] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+               aria-label="Previous feature"
+             >
+               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+               </svg>
+             </button>
 
-            {/* Right Overlapping Arrow */}
-            {startIndex < OFFERINGS.length - visibleCount && (
-              <button
-                onClick={next}
-                className="absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center justify-center text-[#f37021] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                aria-label="Next feature"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </button>
-            )}
+             {/* Right Overlapping Arrow */}
+             <button
+               onClick={next}
+               className="absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center justify-center text-[#f37021] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+               aria-label="Next feature"
+             >
+               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+               </svg>
+             </button>
 
-            {/* Inner clipped area */}
-            <div className="w-full overflow-hidden">
-              {/* Offerings Flex Slider */}
-              <div 
-                className="flex transition-transform duration-300 ease-in-out w-full"
-                style={{ 
-                  transform: `translateX(${transformX})`,
-                  gap: `${gapSize}px`
-                }}
-              >
-                {OFFERINGS.map((offering) => (
-                  <div
-                    key={offering.num}
-                    style={{
-                      width: `calc((100% - ${(fraction - 1) * gapSize}px) / ${fraction})`
-                    }}
-                    className="flex-shrink-0 bg-[#f4f4f4] rounded-[18px] pt-5 pb-4 px-6 flex flex-col justify-start text-left transition-all duration-200 h-[300px]"
-                  >
-                    {/* Circle Number */}
-                    <div className="w-10 h-10 rounded-full bg-[#d9d9d9] flex items-center justify-center text-black font-bold text-sm mb-3 flex-shrink-0">
-                      {offering.num}
-                    </div>
-                    
-                    {/* Title */}
-                    <h4 className={`${spectral.className} text-lg sm:text-xl font-bold text-black leading-snug mb-2`}>
-                      {offering.title}
-                    </h4>
+             {/* Inner clipped area */}
+             <div className="w-full overflow-hidden">
+               {/* Offerings Flex Slider */}
+               <div 
+                 className={`flex w-full ${transitionEnabled ? 'transition-transform duration-300 ease-in-out' : ''}`}
+                 style={{ 
+                   transform: `translateX(${transformX})`,
+                   gap: `${gapSize}px`
+                 }}
+               >
+                 {EXTENDED_OFFERINGS.map((offering, idx) => (
+                   <div
+                     key={`${offering.num}-${idx}`}
+                     style={{
+                       width: `calc((100% - ${(fraction - 1) * gapSize}px) / ${fraction})`
+                     }}
+                     className="flex-shrink-0 bg-[#f4f4f4] rounded-[18px] pt-5 pb-4 px-6 flex flex-col justify-start text-left transition-all duration-200 h-[260px]"
+                   >
+                     {/* Circle Number */}
+                     <div className="w-10 h-10 rounded-full bg-[#d9d9d9] flex items-center justify-center text-black font-bold text-sm mb-3 flex-shrink-0">
+                       {offering.num}
+                     </div>
+                     
+                     {/* Title */}
+                     <h4 className={`${spectral.className} text-lg sm:text-xl font-bold text-black leading-snug mb-2`}>
+                       {offering.title}
+                     </h4>
 
-                    {/* Description */}
-                    <p className="text-[#1d1d1f] text-sm sm:text-[15px] lg:text-[16px] leading-normal text-justify">
-                      {offering.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                     {/* Description */}
+                     <p className="text-gray-500 font-medium text-xs sm:text-sm leading-relaxed text-justify">
+                       {offering.description}
+                     </p>
+                   </div>
+                 ))}
+               </div>
+             </div>
           </div>
         </div>
 

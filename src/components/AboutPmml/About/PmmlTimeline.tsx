@@ -23,7 +23,7 @@ const MILESTONES = [
     year: '1948',
     heading: "1948 | Nehru's Residence",
     body: "In August 1948, after the departure of the last British Commander-in-Chief, Teen Murti House became the official residence of independent India's first Prime Minister, Jawaharlal Nehru, who lived here for sixteen years until his death on May 27, 1964. Soon thereafter, the Government of India decided that the Teen Murti House should be dedicated to him and house a museum and a library.",
-    image: '/leaders/nehru.png',
+    image: '/building 1/nehru gallery.jpg',
     icon: '🇮🇳',
     accentColor: '#f37021',
   },
@@ -55,7 +55,7 @@ const MILESTONES = [
     year: '1989–90',
     heading: '1989–90 | Centre for Contemporary Studies',
     body: "The steady increase in the volume of research material further necessitated the construction of an Annexe building, which was completed in 1989. The Centre for Contemporary Studies was set up as a new unit of PMML in this building in 1990.",
-    image: '/ccs.png',
+    image: '/DSC_4568.jpg',
     icon: '🔬',
     accentColor: '#0f4c75',
   },
@@ -119,12 +119,12 @@ export default function PmmlTimeline() {
         <div className="flex flex-col items-start justify-start text-left mb-12 w-full">
           {/* Standard Homepage Section Top Line Accent (Shorter square line matching 'Jou' width) */}
           <div className="w-12 h-1 bg-[#f37021] mb-4" />
-          
+
           {/* Standard Homepage Font Metrics */}
           <h2 className={`${spectral.className} text-2xl sm:text-3xl md:text-4xl font-bold text-[#052356] mb-3 tracking-tight`}>
             Journey Through Time
           </h2>
-          
+
           {/* Replaced Verbatim Text Payload */}
           <p className="text-gray-500 text-sm sm:text-[15px] lg:text-[16px] font-medium max-w-4xl leading-relaxed mt-1 text-left">
             The Prime Ministers Museum and Library is housed in the sprawling Thirty Acre historic Teen Murti campus located south of Rashtrapati Bhavan in New Delhi.
@@ -132,8 +132,8 @@ export default function PmmlTimeline() {
         </div>
 
         {/* ── DESKTOP LAYOUT (2-Column split system) ── */}
-        <div 
-          className="hidden lg:grid gap-8 items-stretch" 
+        <div
+          className="hidden lg:grid gap-8 items-stretch"
           style={{ gridTemplateColumns: '15fr 85fr' }}
         >
           {/* Column 1: Fixed Timeline Nav vertical sidebar tracker (Vertically centered) */}
@@ -142,7 +142,7 @@ export default function PmmlTimeline() {
             <div className="relative flex flex-col gap-3 pl-1">
               {/* Vertical connecting line inside side-dock */}
               <div className="absolute left-[11px] top-2 bottom-2 w-[2px] bg-gray-100" />
-              
+
               {MILESTONES.map((m, idx) => {
                 const isActive = idx === activeIndex;
                 return (
@@ -152,18 +152,16 @@ export default function PmmlTimeline() {
                     className="group flex items-center gap-4 text-left transition-all duration-200 cursor-pointer"
                   >
                     <div
-                      className={`w-4 h-4 rounded-full border-2 flex items-center justify-center z-10 transition-all duration-300 ${
-                        isActive
-                           ? 'bg-[#f37021] border-[#f37021] scale-125 shadow-md shadow-orange-500/20'
-                           : 'bg-white border-gray-300 group-hover:border-[#f37021]'
-                      }`}
+                      className={`w-4 h-4 rounded-full border-2 flex items-center justify-center z-10 transition-all duration-300 ${isActive
+                          ? 'bg-[#f37021] border-[#f37021] scale-125 shadow-md shadow-orange-500/20'
+                          : 'bg-white border-gray-300 group-hover:border-[#f37021]'
+                        }`}
                     />
                     <span
-                      className={`text-xs font-bold tracking-wide transition-all duration-200 ${
-                        isActive
+                      className={`text-xs font-bold tracking-wide transition-all duration-200 ${isActive
                           ? 'text-[#052356] scale-105 font-extrabold'
                           : 'text-gray-400 group-hover:text-gray-600'
-                      }`}
+                        }`}
                     >
                       {m.year}
                     </span>
@@ -174,31 +172,29 @@ export default function PmmlTimeline() {
           </div>
 
           {/* Column 2: Unified Merged Content and Image Card (Fixed size to prevent jumping) */}
-          <div 
+          <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             className="bg-[#f8f8f8] rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-[340px] w-full"
           >
             {/* Left side: Text Content */}
-            <div 
-              className={`w-[55%] p-6 sm:p-8 flex flex-col justify-center gap-4 transition-all duration-300 ease-in-out ${
-                isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
-              }`}
+            <div
+              className={`w-[55%] p-6 sm:p-8 flex flex-col justify-center gap-4 transition-all duration-300 ease-in-out ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
+                }`}
             >
               <h3 className={`${spectral.className} text-xl sm:text-2xl md:text-3xl font-bold text-[#052356] leading-tight`}>
                 {currentMilestone.heading}
               </h3>
-              
+
               <p className="text-gray-600 text-sm sm:text-[15px] lg:text-[16px] font-normal leading-relaxed text-justify">
                 {currentMilestone.body}
               </p>
             </div>
 
             {/* Right side: Image Frame */}
-            <div 
-              className={`w-[45%] relative bg-[#040a17] overflow-hidden transition-all duration-300 ease-in-out ${
-                isTransitioning ? 'opacity-0 scale-[0.985]' : 'opacity-100 scale-100'
-              }`}
+            <div
+              className={`w-[45%] relative bg-[#040a17] overflow-hidden transition-all duration-300 ease-in-out ${isTransitioning ? 'opacity-0 scale-[0.985]' : 'opacity-100 scale-100'
+                }`}
             >
               <Image
                 src={currentMilestone.image}
@@ -214,7 +210,7 @@ export default function PmmlTimeline() {
         {/* ── MOBILE / TABLET LAYOUT (Stacked) ── */}
         <div className="flex flex-col lg:hidden gap-6">
           {/* Horizontal Year Selector */}
-          <div 
+          <div
             className="w-full py-3 flex overflow-x-auto px-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
@@ -225,11 +221,10 @@ export default function PmmlTimeline() {
                   <button
                     key={m.year}
                     onClick={() => handleSelectYear(idx)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${
-                      isActive
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-300 cursor-pointer ${isActive
                         ? 'bg-[#f37021] text-white shadow-md scale-105'
                         : 'bg-white text-gray-500 border border-gray-100 hover:bg-gray-50'
-                    }`}
+                      }`}
                   >
                     <span className="mr-1.5">{m.icon}</span>
                     {m.year}
@@ -240,31 +235,29 @@ export default function PmmlTimeline() {
           </div>
 
           {/* Unified Merged Content & Image Mobile Container */}
-          <div 
+          <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             className="bg-[#f8f8f8] rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col w-full"
           >
             {/* Mobile Text Content */}
-            <div 
-              className={`p-6 flex flex-col gap-4 transition-all duration-300 ease-in-out ${
-                isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
-              }`}
+            <div
+              className={`p-6 flex flex-col gap-4 transition-all duration-300 ease-in-out ${isTransitioning ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'
+                }`}
             >
               <h3 className={`${spectral.className} text-lg sm:text-xl md:text-2xl font-bold text-[#052356] leading-tight`}>
                 {currentMilestone.heading}
               </h3>
-              
+
               <p className="text-gray-600 text-sm sm:text-[15px] lg:text-[16px] font-normal leading-relaxed text-justify">
                 {currentMilestone.body}
               </p>
             </div>
 
             {/* Mobile Image */}
-            <div 
-              className={`relative h-64 sm:h-80 w-full bg-[#040a17] overflow-hidden transition-all duration-300 ease-in-out ${
-                isTransitioning ? 'opacity-0 scale-[0.985]' : 'opacity-100 scale-100'
-              }`}
+            <div
+              className={`relative h-64 sm:h-80 w-full bg-[#040a17] overflow-hidden transition-all duration-300 ease-in-out ${isTransitioning ? 'opacity-0 scale-[0.985]' : 'opacity-100 scale-100'
+                }`}
             >
               <Image
                 src={currentMilestone.image}

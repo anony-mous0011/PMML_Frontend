@@ -96,7 +96,6 @@ export default function LibraryRareBooksContent() {
           className="object-cover object-center"
         />
       </section>
-
       {/* ── Main Content Section (Same layout as Latest Books page) ── */}
       <section className="w-full py-12 bg-white text-left">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

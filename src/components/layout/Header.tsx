@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { NAV_ITEMS } from './MenuBar';
 
 interface HeaderProps {
@@ -15,10 +16,14 @@ export const Header: React.FC<HeaderProps> = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Searching for:', searchQuery);
+    if (searchQuery.trim()) {
+      setIsMobileMenuOpen(false);
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
   };
 
   return (

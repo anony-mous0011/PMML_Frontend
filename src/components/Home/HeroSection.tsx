@@ -94,7 +94,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden"
+      className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden bg-slate-950"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-label="Hero image carousel"
@@ -120,7 +120,7 @@ export default function HeroSection() {
               fill
               priority={i === 0 || i === 1}
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover"
             />
           </div>
         );

@@ -17,13 +17,13 @@ const BLOCK_1_ITEMS = [
   {
     title: 'Constitution Gallery',
     description: 'Witness the making of the constitution, democratic foundations, key amendments, and the translation of the constitution in different languages. Step into the historical debates and the democratic journey of modern India. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: '/bhavishya.png',
+    image: '/building 1/constitutional amendments.jpg',
     alt: 'Constitution Gallery'
   },
   {
     title: 'Nehru Gallery-1',
     description: 'Step into Jawaharlal Nehru\'s early life, political journey, his bedroom, personal belongings, and a special exhibition on his Prime Ministership. Relive the early days of independent India through this dedicated collection. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: '/leaders/nehru.png',
+    image: '/building 1/nehru gallery.jpg',
     alt: 'Nehru Gallery'
   },
   {
@@ -38,25 +38,25 @@ const BLOCK_2_ITEMS = [
   {
     title: 'Galleries',
     description: 'Explore the modern galleries of independent India since 1947. These spaces showcase the individual visions, major domestic policies, international relationships, and unique historical legacies of each of the country\'s Prime Ministers. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/bhavishya.png',
+    image: '/building 2/prime ministers gallery.jpg',
     alt: 'Galleries'
   },
   {
     title: 'Prastuti',
     description: 'Witness the Nuclear Journey to Dream Reality, step inside a virtual reality time machine, and experience the cosmic visual storytelling of India\'s scientific breakthroughs. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    image: '/time-machine.png',
+    image: '/building 2/prastuti conference room.jpg',
     alt: 'Prastuti Room'
   },
   {
     title: 'Anubhuti Zone',
     description: 'Engage in highly interactive zones: take a selfie with the Prime Minister, walk alongside leaders, view the Unity Chain, interact with the 3D holographic Lal Qile Ki Prachir Se representation, and converse with historical visionaries in the AI Holobox. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/selfie.png',
+    image: '/building 2/anubhuti.jpg',
     alt: 'Anubhuti Zone'
   },
   {
     title: 'Ramps',
     description: 'Walk through the immersive transition tunnels. Tunnel 1 details the historic progression from 1947 to 1989, and Tunnel 2 chronicles modern leadership and milestones from 1991 to 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: '/hero-slide-2.png',
+    image: '/tunnel.jpg',
     alt: 'Tunnels'
   }
 ];

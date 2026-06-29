@@ -15,7 +15,7 @@ export default function DisclaimerContent() {
   return (
     <div className="w-full flex flex-col bg-white">
       {/* ── Page Hero Section ── */}
-      <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
+       <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
         <Image
           src="/hero.png"
           alt="Disclaimer"
@@ -25,6 +25,7 @@ export default function DisclaimerContent() {
           className="object-cover object-center"
         />
       </section>
+
 
 
 
@@ -44,16 +45,16 @@ export default function DisclaimerContent() {
       <section className="w-full py-12 lg:py-16 bg-white text-left">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-slate-600 space-y-6 text-sm sm:text-base leading-relaxed">
           <p>
-            The information contained in this website is for general information purposes only. The information is provided by the <strong>Prime Ministers Museum and Library (PMML)</strong> and while we endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p>
-            Any reliance you place on such information is therefore strictly at your own risk. In no event will we be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.
+            Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus. Donec feugiat sapien vitae odio. Mauris ac tempor ligula. Aliquam ac sem ac est interdum dictum. Ut sodales purus non tempor sodales.
           </p>
           <p>
-            Through this website you are able to link to other websites which are not under the control of PMML. We have no control over the nature, content and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+            Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris convallis libero sed sodales pretium. Fusce a lectus id ante sodales interdum eget in massa. Vestibulum sit amet eros laoreet, laoreet lorem vel, lobortis lorem.
           </p>
           <p>
-            Every effort is made to keep the website up and running smoothly. However, PMML takes no responsibility for, and will not be liable for, the website being temporarily unavailable due to technical issues beyond our control.
+            Aenean nec lectus id ante sodales interdum eget in massa. Vestibulum sit amet eros laoreet, laoreet lorem vel, lobortis lorem. Mauris convallis libero sed sodales pretium. Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
           </p>
         </div>
       </section>

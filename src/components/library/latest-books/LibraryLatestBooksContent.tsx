@@ -90,7 +90,7 @@ export default function LibraryLatestBooksContent() {
   return (
     <div className="w-full flex flex-col bg-white">
       {/* ── Subpage Hero Banner ── */}
-      <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
+       <section className="relative w-full aspect-[16/7.5] sm:aspect-[2.6/1] lg:aspect-[3.8/1] min-h-[280px] lg:h-auto overflow-hidden">
         <Image
           src="/library.jpg"
           alt="PMML Library New Arrivals"
