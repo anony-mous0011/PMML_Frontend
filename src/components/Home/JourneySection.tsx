@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Spectral } from 'next/font/google';
 
 const spectral = Spectral({
@@ -207,6 +208,15 @@ export default function JourneySection() {
     setActiveIdx((prev) => (prev + 1) % PM_DATA.length);
   };
 
+  const getPmSlug = (name: string) => {
+    if (name.includes("Jawaharlal Nehru")) return "shri-jawaharlal-nehru";
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]/g, '')
+      .trim()
+      .replace(/\s+/g, '-');
+  };
+
   const currentPM = PM_DATA[displayIdx];
 
   // Midpoint dot offsets to place gold dots in the gaps between portraits
@@ -319,9 +329,9 @@ export default function JourneySection() {
                 : (isMobile ? 68 : 88);
 
               return (
-                <div
+                <Link
                   key={pm.id}
-                  onClick={() => setActiveIdx(idx)}
+                  href={`/pm-sangrahalaya/pms-of-india#${getPmSlug(pm.name)}`}
                   className={`absolute rounded-full cursor-pointer flex items-center justify-center transition-all duration-700 ease-out z-10 ${
                     isActive ? 'z-20' : 'hover:scale-105'
                   }`}
@@ -365,7 +375,7 @@ export default function JourneySection() {
                       />
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
 

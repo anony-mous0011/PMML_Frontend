@@ -85,7 +85,9 @@ export const Header: React.FC<HeaderProps> = ({
               </a>
 
               <a
-                href="/plan-a-visit"
+                href="https://www.pmsangrahalaya.gov.in/book-now"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#f37021] hover:bg-[#d85c15] text-white font-semibold px-5 py-2 rounded text-center text-xs btn-premium-pop shadow-sm"
               >
                 Plan a visit
@@ -138,7 +140,9 @@ export const Header: React.FC<HeaderProps> = ({
               </form>
               <div className="flex flex-col gap-2">
                 <a
-                  href="/plan-a-visit"
+                  href="https://www.pmsangrahalaya.gov.in/book-now"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full bg-[#f37021] hover:bg-[#d85c15] text-white font-semibold py-2 rounded-lg text-center text-xs shadow-sm"
                 >

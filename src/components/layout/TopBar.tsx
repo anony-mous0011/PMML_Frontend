@@ -189,55 +189,7 @@ export default function TopBar() {
             Skip to Main Content
           </button>
           <span className="hidden md:inline-block text-white/40">|</span>
-
-          {/* FIX #2: Screen Reader Access — now opens panel & focuses TTS */}
-          <button
-            onClick={handleScreenReaderAccess}
-            className="hidden md:inline-block hover:text-[#052356] transition focus:outline-none focus:underline"
-            aria-label="Enable Screen Reader / Text to Speech"
-          >
-            Screen Reader Access
-          </button>
-          <span className="hidden md:inline-block text-white/40">|</span>
-
-          {/* FONT SIZE */}
-          <div className="hidden sm:flex items-center gap-2">
-            <button
-              onClick={() => handleFontSizeChange("large")}
-              className={`hover:text-[#052356] text-sm font-bold leading-none transition-colors ${
-                fontSize === "large" ? "text-[#052356] scale-110" : "text-white"
-              }`}
-              title="Increase Font Size"
-              aria-label="Increase font size"
-              aria-pressed={fontSize === "large"}
-            >
-              A+
-            </button>
-            <button
-              onClick={() => handleFontSizeChange("normal")}
-              className={`hover:text-[#052356] text-xs font-medium leading-none transition-colors ${
-                fontSize === "normal" ? "text-[#052356] scale-110" : "text-white"
-              }`}
-              title="Normal Font Size"
-              aria-label="Reset font size"
-              aria-pressed={fontSize === "normal"}
-            >
-              A
-            </button>
-            <button
-              onClick={() => handleFontSizeChange("small")}
-              className={`hover:text-[#052356] text-[10px] leading-none transition-colors ${
-                fontSize === "small" ? "text-[#052356] scale-90" : "text-white"
-              }`}
-              title="Decrease Font Size"
-              aria-label="Decrease font size"
-              aria-pressed={fontSize === "small"}
-            >
-              A-
-            </button>
-          </div>
-
-          <span className="hidden sm:inline-block text-white/40">|</span>
+          
 
           {/* FIX #3: Language selector — now wired with onChange handler */}
           <select

@@ -173,16 +173,16 @@ export default function WelcomeSection() {
 
               {/* Card Footer: View All & Arrow Button */}
               <div className="flex items-center justify-between pt-1">
-                <a
-                  href="#news"
+                <Link
+                  href="/media/news"
                   className="text-[11px] sm:text-xs font-bold text-[#052356] hover:text-[#f37021] transition-colors uppercase tracking-wider select-none"
                 >
                   View All
-                </a>
+                </Link>
 
                 {/* Orange Circular Accent Arrow Button */}
-                <a
-                  href="#news"
+                <Link
+                  href="/media/news"
                   aria-label="View all news"
                   className="w-8 h-8 rounded-full bg-[#f37021] hover:bg-[#d85c15] text-white flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_2px_6px_rgba(243,112,33,0.3)] hover:shadow-[0_4px_12px_rgba(243,112,33,0.5)]"
                 >
@@ -198,7 +198,7 @@ export default function WelcomeSection() {
                       d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
 
             </div>

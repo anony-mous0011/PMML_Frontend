@@ -439,7 +439,7 @@ export default function PmSangrahalayaAboutContent() {
                   </p>
                 </div>
                 <a
-                  href="https://www.pmsangrahalaya.gov.in/"
+                  href="https://www.pmsangrahalaya.gov.in/book-now"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[#f37021] hover:bg-[#d85c15] text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors duration-300 mt-auto"

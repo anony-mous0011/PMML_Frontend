@@ -33,6 +33,7 @@ export const NAV_ITEMS: MenuItem[] = [
       { label: "Directory", href: "/about-pmml/whos-who" },
       { label: "Conference Facilities", href: "/about-pmml/conference-facilities" },
       { label: "Nehru Planetarium", href: "/about-pmml/nehru-planetarium" },
+      { label: "Hindi Division", href: "/about-pmml/hindi-division" },
     ],
   },
   {

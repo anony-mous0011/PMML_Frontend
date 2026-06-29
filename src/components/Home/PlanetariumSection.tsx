@@ -68,13 +68,13 @@ export default function PlanetariumSection() {
           {/* View Shows Buttons */}
           <div className="flex items-center gap-3">
             <a 
-              href="/nehru-planetarium#shows"
+              href="/about-pmml/nehru-planetarium"
               className="bg-[#1b253c] hover:bg-[#253252] text-white font-semibold px-5 py-2.5 rounded text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#1b253c]/35 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
             >
               View Shows
             </a>
             <a 
-              href="/nehru-planetarium#shows"
+              href="/about-pmml/nehru-planetarium"
               className="group bg-[#f37021] hover:bg-[#d85c15] text-[#0a1835] w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-[#f37021]/35 hover:scale-[1.08] hover:-translate-y-0.5 active:scale-[0.95] cursor-pointer"
               aria-label="View Shows Arrow Link"
             >
